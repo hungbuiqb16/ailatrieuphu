@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { App, Button, Card, Form, Input, Typography } from "antd";
+import { App, Button, Card, ConfigProvider, Form, Input, Typography } from "antd";
 import { LockOutlined } from "@ant-design/icons";
 
 function LoginForm() {
@@ -58,8 +58,10 @@ function LoginForm() {
 
 export default function AdminLoginPage() {
   return (
-    <App>
-      <LoginForm />
-    </App>
+    <ConfigProvider theme={{ token: { colorPrimary: "#E8394A", colorLink: "#E8394A" } }}>
+      <App>
+        <LoginForm />
+      </App>
+    </ConfigProvider>
   );
 }

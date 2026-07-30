@@ -14,6 +14,7 @@ import {
   PlusOutlined,
 } from "@ant-design/icons";
 import { useGameData } from "../GameDataContext";
+import { SectionHeader } from "../SectionHeader";
 import { CSV_TEMPLATE } from "@/lib/csv";
 
 export default function SetsPage() {
@@ -156,17 +157,20 @@ export default function SetsPage() {
 
   return (
     <div>
-      <Typography.Title level={4} style={{ marginTop: 0 }}>
-        Bộ câu hỏi
-      </Typography.Title>
-      <Space style={{ marginBottom: 16 }}>
-        <Button type="primary" icon={<PlusOutlined />} loading={saving} onClick={() => setCreating(true)}>
-          Tạo bộ mới
-        </Button>
-        <Button icon={<ImportOutlined />} loading={saving} onClick={() => setImporting(true)}>
-          Nhập từ CSV
-        </Button>
-      </Space>
+      <SectionHeader
+        title="Bộ câu hỏi"
+        description="Tạo, kích hoạt và quản lý các bộ câu hỏi cho game."
+        action={
+          <Space>
+            <Button icon={<ImportOutlined />} loading={saving} onClick={() => setImporting(true)}>
+              Nhập từ CSV
+            </Button>
+            <Button type="primary" icon={<PlusOutlined />} loading={saving} onClick={() => setCreating(true)}>
+              Tạo bộ mới
+            </Button>
+          </Space>
+        }
+      />
       <Table rowKey="id" columns={columns} dataSource={data.sets} pagination={false} />
 
       <Modal

@@ -2,21 +2,10 @@
 
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import {
-  Alert,
-  Button,
-  Checkbox,
-  Input,
-  InputNumber,
-  Popconfirm,
-  Select,
-  Space,
-  Spin,
-  Table,
-  Typography,
-} from "antd";
+import { Alert, Button, Checkbox, Input, InputNumber, Popconfirm, Select, Space, Spin, Table } from "antd";
 import { DeleteOutlined, PlusOutlined, SaveOutlined } from "@ant-design/icons";
 import { useGameData, setToRows, rowsToSet, type Row } from "../GameDataContext";
+import { SectionHeader } from "../SectionHeader";
 
 export default function QuestionsPage() {
   return (
@@ -165,17 +154,20 @@ function QuestionsPageContent() {
 
   return (
     <div>
-      <Typography.Title level={4} style={{ marginTop: 0 }}>
-        Câu hỏi & thang tiền — {set.name}
-      </Typography.Title>
-      <Space style={{ marginBottom: 16 }}>
-        <Button icon={<PlusOutlined />} onClick={addRow}>
-          Thêm câu hỏi
-        </Button>
-        <Button type="primary" icon={<SaveOutlined />} loading={saving} onClick={save}>
-          Lưu tất cả
-        </Button>
-      </Space>
+      <SectionHeader
+        title={`Câu hỏi & thang tiền — ${set.name}`}
+        description="Chỉnh sửa câu hỏi, đáp án, giá trị giải thưởng và mốc an toàn."
+        action={
+          <Space>
+            <Button icon={<PlusOutlined />} onClick={addRow}>
+              Thêm câu hỏi
+            </Button>
+            <Button type="primary" icon={<SaveOutlined />} loading={saving} onClick={save}>
+              Lưu tất cả
+            </Button>
+          </Space>
+        }
+      />
       <Table rowKey="key" columns={columns} dataSource={rows} pagination={false} scroll={{ x: 1100 }} />
     </div>
   );

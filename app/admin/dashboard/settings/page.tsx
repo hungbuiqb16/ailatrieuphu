@@ -1,8 +1,9 @@
 "use client";
 
-import { Button, Card, Form, InputNumber, Space, Spin, Switch, Typography } from "antd";
+import { Button, Card, Form, InputNumber, Space, Spin, Switch } from "antd";
 import { SaveOutlined } from "@ant-design/icons";
 import { useGameData } from "../GameDataContext";
+import { SectionHeader } from "../SectionHeader";
 import type { Lifelines } from "@/lib/gameData";
 
 export default function SettingsPage() {
@@ -20,9 +21,15 @@ export default function SettingsPage() {
 
   return (
     <div>
-      <Typography.Title level={4} style={{ marginTop: 0 }}>
-        Cài đặt chung
-      </Typography.Title>
+      <SectionHeader
+        title="Cài đặt chung"
+        description="Thời gian mỗi câu hỏi và các quyền trợ giúp trong game."
+        action={
+          <Button type="primary" icon={<SaveOutlined />} loading={saving} onClick={save}>
+            Lưu cài đặt
+          </Button>
+        }
+      />
       <Card style={{ maxWidth: 480 }}>
         <Form layout="vertical">
           <Form.Item label="Thời gian mỗi câu hỏi (giây)">
@@ -55,9 +62,6 @@ export default function SettingsPage() {
               ))}
             </Space>
           </Form.Item>
-          <Button type="primary" icon={<SaveOutlined />} loading={saving} onClick={save}>
-            Lưu cài đặt
-          </Button>
         </Form>
       </Card>
     </div>

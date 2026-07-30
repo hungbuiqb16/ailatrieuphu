@@ -66,7 +66,11 @@
       "Bash(node node_modules/eslint/bin/eslint.js app)",
       "Bash(grep -n \"selected === i\\\\|ring-4\\\\|ring-gold\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\GameClient.tsx\")",
       "Bash(grep -n \"extra = \\\\\"ring-4 ring-gold\\\\\"\" -B3 \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\GameClient.tsx\")",
-      "Bash(grep -n \"order-1\\\\|order-2\\\\|lg:grid-cols\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\GameClient.tsx\")"
+      "Bash(grep -n \"order-1\\\\|order-2\\\\|lg:grid-cols\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\GameClient.tsx\")",
+      "Bash(grep -n \"Typography.Title\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\sets\\\\page.tsx\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\questions\\\\page.tsx\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\settings\\\\page.tsx\")",
+      "Bash(grep -n \"Typography\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\sets\\\\page.tsx\")",
+      "Bash(grep -n \"Typography\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\questions\\\\page.tsx\")",
+      "Bash(cat \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\settings\\\\page.tsx\")"
     ],
     "additionalDirectories": [
       "\\tmp",

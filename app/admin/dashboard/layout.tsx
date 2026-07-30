@@ -3,7 +3,7 @@
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { App, Avatar, Button, Layout, Menu } from "antd";
+import { App, Avatar, Button, ConfigProvider, Layout, Menu } from "antd";
 import {
   DatabaseOutlined,
   LogoutOutlined,
@@ -18,10 +18,16 @@ import { GameDataProvider } from "./GameDataContext";
 
 const { Sider, Header, Content } = Layout;
 
+const BRAND_RED = "#E8394A";
+
 const MENU_ITEMS = [
-  { key: "/admin/dashboard/sets", icon: <DatabaseOutlined />, label: "Bộ câu hỏi" },
-  { key: "/admin/dashboard/questions", icon: <QuestionCircleOutlined />, label: "Câu hỏi & thang tiền" },
-  { key: "/admin/dashboard/settings", icon: <SettingOutlined />, label: "Cài đặt chung" },
+  { key: "/admin/dashboard/sets", icon: <DatabaseOutlined style={{ color: "#FF9E1B" }} />, label: "Bộ câu hỏi" },
+  {
+    key: "/admin/dashboard/questions",
+    icon: <QuestionCircleOutlined style={{ color: "#2EC4B6" }} />,
+    label: "Câu hỏi & thang tiền",
+  },
+  { key: "/admin/dashboard/settings", icon: <SettingOutlined style={{ color: "#582B9E" }} />, label: "Cài đặt chung" },
 ];
 
 function DashboardShell({ children }: { children: ReactNode }) {
@@ -37,7 +43,7 @@ function DashboardShell({ children }: { children: ReactNode }) {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed} theme="dark">
+      <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed} theme="light" style={{ borderRight: "1px solid #f0f0f0" }}>
         <div
           style={{
             height: 56,
@@ -46,7 +52,7 @@ function DashboardShell({ children }: { children: ReactNode }) {
             alignItems: "center",
             justifyContent: collapsed ? "center" : "flex-start",
             gap: 8,
-            color: "#FFC93C",
+            color: BRAND_RED,
             fontWeight: 800,
             fontSize: collapsed ? 20 : 16,
             whiteSpace: "nowrap",
@@ -57,7 +63,7 @@ function DashboardShell({ children }: { children: ReactNode }) {
           {!collapsed && <span>AI LÀ TRIỆU PHÚ</span>}
         </div>
         <Menu
-          theme="dark"
+          theme="light"
           mode="inline"
           selectedKeys={[pathname]}
           items={MENU_ITEMS.map((item) => ({
@@ -71,6 +77,7 @@ function DashboardShell({ children }: { children: ReactNode }) {
           style={{
             padding: "0 16px",
             background: "#fff",
+            borderBottom: "1px solid #f0f0f0",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -82,7 +89,7 @@ function DashboardShell({ children }: { children: ReactNode }) {
             onClick={() => setCollapsed((c) => !c)}
           />
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <Avatar icon={<UserOutlined />} />
+            <Avatar style={{ backgroundColor: BRAND_RED }} icon={<UserOutlined />} />
             <span>Quản trị viên</span>
             <Button icon={<LogoutOutlined />} onClick={logout}>
               Đăng xuất
@@ -99,10 +106,19 @@ function DashboardShell({ children }: { children: ReactNode }) {
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
-    <App>
-      <GameDataProvider>
-        <DashboardShell>{children}</DashboardShell>
-      </GameDataProvider>
-    </App>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: BRAND_RED,
+          colorLink: BRAND_RED,
+        },
+      }}
+    >
+      <App>
+        <GameDataProvider>
+          <DashboardShell>{children}</DashboardShell>
+        </GameDataProvider>
+      </App>
+    </ConfigProvider>
   );
 }
