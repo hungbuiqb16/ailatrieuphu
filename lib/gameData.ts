@@ -168,10 +168,21 @@ export async function getPublicGameData(): Promise<PublicGameData | null> {
   return set ? toPublicGameData(data, set) : null;
 }
 
-export async function getRandomPublicGameData(excludeSetId?: string): Promise<PublicGameData | null> {
+/**
+ * Chọn bộ câu hỏi kế tiếp theo kiểu xoay vòng: ưu tiên bộ chưa nằm trong
+ * `playedSetIds` (chưa chơi trong phiên hiện tại). Khi đã chơi hết mọi bộ,
+ * bắt đầu vòng mới nhưng vẫn tránh lặp lại đúng bộ vừa chơi nếu có thể.
+ */
+export async function getNextPublicGameData(playedSetIds: string[]): Promise<PublicGameData | null> {
   const data = await readGameData();
-  const candidates =
-    excludeSetId && data.sets.length > 1 ? data.sets.filter((s) => s.id !== excludeSetId) : data.sets;
-  const set = candidates[Math.floor(Math.random() * candidates.length)] ?? data.sets[0];
-  return set ? toPublicGameData(data, set) : null;
+  if (data.sets.length === 0) return null;
+
+  let candidates = data.sets.filter((s) => !playedSetIds.includes(s.id));
+  if (candidates.length === 0) {
+    const lastPlayed = playedSetIds[playedSetIds.length - 1];
+    candidates = data.sets.length > 1 ? data.sets.filter((s) => s.id !== lastPlayed) : data.sets;
+  }
+
+  const set = candidates[Math.floor(Math.random() * candidates.length)];
+  return toPublicGameData(data, set);
 }

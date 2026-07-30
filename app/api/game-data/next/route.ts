@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getRandomPublicGameData } from "@/lib/gameData";
+import { getNextPublicGameData } from "@/lib/gameData";
 
 export async function GET(req: NextRequest) {
-  const exclude = req.nextUrl.searchParams.get("exclude") || undefined;
-  const data = await getRandomPublicGameData(exclude);
+  const playedParam = req.nextUrl.searchParams.get("played") || "";
+  const playedSetIds = playedParam.split(",").filter(Boolean);
+
+  const data = await getNextPublicGameData(playedSetIds);
   if (!data) {
     return NextResponse.json({ message: "Chưa có bộ câu hỏi nào" }, { status: 404 });
   }

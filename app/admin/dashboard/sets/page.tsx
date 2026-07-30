@@ -19,12 +19,11 @@ import { CSV_TEMPLATE } from "@/lib/csv";
 export default function SetsPage() {
   const router = useRouter();
   const { message } = App.useApp();
-  const { loading, saving, data, createSet, importSetFromCsv, duplicateSet, deleteSet, renameSet, activateSet } =
+  const { loading, saving, data, createSet, importSetsFromCsv, duplicateSet, deleteSet, renameSet, activateSet } =
     useGameData();
   const [creating, setCreating] = useState(false);
   const [newName, setNewName] = useState("");
   const [importing, setImporting] = useState(false);
-  const [importName, setImportName] = useState("");
   const [csvFileName, setCsvFileName] = useState("");
   const [csvText, setCsvText] = useState("");
   const [importErrors, setImportErrors] = useState<string[]>([]);
@@ -64,34 +63,28 @@ export default function SetsPage() {
 
   function resetImportState() {
     setImporting(false);
-    setImportName("");
     setCsvFileName("");
     setCsvText("");
     setImportErrors([]);
   }
 
   async function handleImport() {
-    const name = importName.trim();
-    if (!name) {
-      message.error("Vui lòng nhập tên bộ câu hỏi");
-      return;
-    }
     if (!csvText) {
       message.error("Vui lòng chọn file CSV");
       return;
     }
-    const result = await importSetFromCsv(name, csvText);
+    const result = await importSetsFromCsv(csvText);
     if (!result.ok) {
       setImportErrors(result.errors);
       return;
     }
     if (result.errors.length > 0) {
-      message.warning(`Đã nhập với ${result.errors.length} dòng bị bỏ qua do lỗi định dạng`);
+      message.warning(`Đã nhập ${result.ids.length} bộ câu hỏi, ${result.errors.length} dòng bị bỏ qua do lỗi định dạng`);
     } else {
-      message.success("Đã nhập bộ câu hỏi từ CSV");
+      message.success(`Đã nhập ${result.ids.length} bộ câu hỏi từ CSV`);
     }
     resetImportState();
-    router.push(`/admin/dashboard/questions?set=${result.id}`);
+    router.push(`/admin/dashboard/questions?set=${result.ids[0]}`);
   }
 
   function downloadTemplate() {
@@ -204,13 +197,6 @@ export default function SetsPage() {
         width={560}
       >
         <Space direction="vertical" style={{ width: "100%" }} size={12}>
-          <Input
-            placeholder="Tên bộ câu hỏi, ví dụ: Bộ Lịch sử"
-            value={importName}
-            onChange={(e) => setImportName(e.target.value)}
-            autoFocus
-          />
-
           <Upload.Dragger
             accept=".csv"
             maxCount={1}
@@ -229,8 +215,9 @@ export default function SetsPage() {
             </p>
             <p className="ant-upload-text">{csvFileName || "Kéo thả hoặc bấm để chọn file CSV"}</p>
             <p className="ant-upload-hint">
-              Các cột bắt buộc: cau_hoi, dap_an_a, dap_an_b, dap_an_c, dap_an_d, dap_an_dung (A/B/C/D). Có thể thêm
-              cột gia_tri (số tiền) và moc_an_toan (x = có).
+              Cột bắt buộc: set_id, position, question, answer_a, answer_b, answer_c, answer_d, correct_index
+              (0-3). Tuỳ chọn: prize, is_safe. Các dòng có cùng set_id sẽ gộp thành một bộ câu hỏi (set_id cũng
+              chính là tên bộ).
             </p>
           </Upload.Dragger>
 

@@ -4,7 +4,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 import { useRouter } from "next/navigation";
 import { App } from "antd";
 import type { GameData, QuestionSet } from "@/lib/gameData";
-import { buildSetFromCsv } from "@/lib/csv";
+import { buildSetsFromCsv } from "@/lib/csv";
 
 export type Row = {
   key: number;
@@ -57,7 +57,7 @@ type GameDataContextValue = {
   setSettings: (updater: (s: GameData["settings"]) => GameData["settings"]) => void;
   updateSet: (id: string, updater: (s: QuestionSet) => QuestionSet) => void;
   createSet: (name: string) => Promise<string>;
-  importSetFromCsv: (name: string, csvText: string) => Promise<{ ok: boolean; id?: string; errors: string[] }>;
+  importSetsFromCsv: (csvText: string) => Promise<{ ok: boolean; ids: string[]; errors: string[] }>;
   duplicateSet: (id: string) => Promise<string>;
   deleteSet: (id: string) => Promise<void>;
   renameSet: (id: string, name: string) => Promise<void>;
@@ -137,16 +137,15 @@ export function GameDataProvider({ children }: { children: ReactNode }) {
     return id;
   }
 
-  async function importSetFromCsv(name: string, csvText: string) {
-    const { questions, prizes, safe, errors } = buildSetFromCsv(csvText);
-    if (questions.length === 0) {
-      return { ok: false, errors: errors.length ? errors : ["Không đọc được câu hỏi nào hợp lệ từ file."] };
+  async function importSetsFromCsv(csvText: string) {
+    const { sets: parsedSets, errors } = buildSetsFromCsv(csvText);
+    if (parsedSets.length === 0) {
+      return { ok: false, ids: [], errors: errors.length ? errors : ["Không đọc được câu hỏi nào hợp lệ từ file."] };
     }
-    const id = makeId();
-    const newSet: QuestionSet = { id, name, prizes, safe, questions };
-    const activeSetId = data.activeSetId || id;
-    await persist({ ...data, activeSetId, sets: [...data.sets, newSet] });
-    return { ok: true, id, errors };
+    const newSets: QuestionSet[] = parsedSets.map((s) => ({ id: makeId(), ...s }));
+    const activeSetId = data.activeSetId || newSets[0].id;
+    await persist({ ...data, activeSetId, sets: [...data.sets, ...newSets] });
+    return { ok: true, ids: newSets.map((s) => s.id), errors };
   }
 
   async function duplicateSet(id: string) {
@@ -193,7 +192,7 @@ export function GameDataProvider({ children }: { children: ReactNode }) {
         setSettings,
         updateSet,
         createSet,
-        importSetFromCsv,
+        importSetsFromCsv,
         duplicateSet,
         deleteSet,
         renameSet,

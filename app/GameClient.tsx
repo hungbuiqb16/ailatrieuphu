@@ -17,6 +17,7 @@ const COLORS = ["#FFC93C", "#FF5D8F", "#2EC4B6", "#FF9E1B", "#FFF3D6", "#6C34C4"
 
 export default function GameClient({ data }: { data: PublicGameData }) {
   const [gameData, setGameData] = useState(data);
+  const [playedSetIds, setPlayedSetIds] = useState<string[]>([data.setId]);
   const { questions, prizes, safe, settings } = gameData;
   const timePerQuestion = settings.timePerQuestion;
 
@@ -288,12 +289,13 @@ export default function GameClient({ data }: { data: PublicGameData }) {
 
     let nextData = gameData;
     try {
-      const res = await fetch(`/api/game-data/random?exclude=${gameData.setId}`);
+      const res = await fetch(`/api/game-data/next?played=${encodeURIComponent(playedSetIds.join(","))}`);
       if (res.ok) nextData = (await res.json()) as PublicGameData;
     } catch {
       // Giữ nguyên bộ câu hỏi hiện tại nếu không lấy được bộ mới
     }
 
+    setPlayedSetIds((prev) => (prev.includes(nextData.setId) ? [nextData.setId] : [...prev, nextData.setId]));
     setGameData(nextData);
     setUsed({ f5050: false, phone: false, audience: false });
     setScreen("game");

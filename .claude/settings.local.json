@@ -53,7 +53,13 @@
       "Bash(mkdir -p /tmp/csvtest)",
       "Bash(node /tmp/csvtest/fixraw.js)",
       "Bash(ls -la /tmp/csvtest/ 2>&1 *)",
-      "Bash(node)"
+      "Bash(node)",
+      "Bash(cat \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\api\\\\game-data\\\\random\\\\route.ts\")",
+      "Bash(grep -n \"getRandomPublicGameData\" -A 8 \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\lib\\\\gameData.ts\")",
+      "Bash(grep -rn \"game-data/random\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\lib\")",
+      "Bash(grep -rn \"getRandomPublicGameData\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\lib\")",
+      "Bash(grep -n \"importSetFromCsv\" -A 12 \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\GameDataContext.tsx\")",
+      "Bash(grep -n \"idsToDelete\\\\|upsert\\\\|delete\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\lib\\\\gameData.ts\")"
     ],
     "additionalDirectories": [
       "\\tmp",
