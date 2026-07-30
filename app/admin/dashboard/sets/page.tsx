@@ -216,8 +216,8 @@ export default function SetsPage() {
             <p className="ant-upload-text">{csvFileName || "Kéo thả hoặc bấm để chọn file CSV"}</p>
             <p className="ant-upload-hint">
               Cột bắt buộc: set_id, position, question, answer_a, answer_b, answer_c, answer_d, correct_index
-              (0-3 hoặc A-D). Tuỳ chọn: prize, is_safe. Các dòng có cùng set_id sẽ gộp thành một bộ câu hỏi
-              (set_id cũng chính là tên bộ).
+              (số 0-3, tương ứng answer_a-answer_d). Tuỳ chọn: prize, is_safe. Các dòng có cùng set_id sẽ gộp
+              thành một bộ câu hỏi (set_id cũng chính là tên bộ).
             </p>
           </Upload.Dragger>
 

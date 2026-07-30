@@ -116,11 +116,10 @@ export function buildSetsFromCsv(text: string): CsvImportResult {
     const setId = (cols[iSetId] || "").trim();
     const q = (cols[iQ] || "").trim();
     const a = [cols[iA], cols[iB], cols[iC], cols[iD]].map((v) => (v || "").trim());
-    const correctRaw = (cols[iCorrect] || "").trim();
-    const correctIndex = /^[0-3]$/.test(correctRaw) ? Number(correctRaw) : "ABCD".indexOf(correctRaw.toUpperCase());
+    const correctIndex = Number((cols[iCorrect] || "").trim());
 
-    if (!setId || !q || a.some((v) => !v) || correctIndex < 0 || correctIndex > 3) {
-      errors.push(`Dòng ${r + 1}: thiếu set_id/câu hỏi/đáp án, hoặc correct_index không phải 0-3 (hoặc A-D) — đã bỏ qua.`);
+    if (!setId || !q || a.some((v) => !v) || !Number.isInteger(correctIndex) || correctIndex < 0 || correctIndex > 3) {
+      errors.push(`Dòng ${r + 1}: thiếu set_id/câu hỏi/đáp án, hoặc correct_index không phải số 0-3 — đã bỏ qua.`);
       continue;
     }
 
