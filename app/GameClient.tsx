@@ -409,7 +409,7 @@ export default function GameClient({ data }: { data: PublicGameData }) {
           </header>
 
           <div className="grid lg:grid-cols-[1fr_260px] gap-5">
-            <section className="order-2 lg:order-1">
+            <section className="order-1">
               <div className="flex flex-wrap items-center gap-2.5 mb-5">
                 <span className="font-body font-bold text-cream/70 text-sm mr-1">Trợ giúp:</span>
                 {settings.lifelines.f5050 && (
@@ -472,7 +472,7 @@ export default function GameClient({ data }: { data: PublicGameData }) {
                   else if (state === "correct") extra = "!bg-teal !text-ink flash-correct";
                   else if (state === "wrong") extra = "!bg-coral !text-cream flash-wrong shake";
                   else if (state === "reveal") extra = "!bg-teal !text-ink";
-                  else if (selected === i) extra = "ring-4 ring-gold";
+                  else if (selected === i) extra = "!bg-gold2 !text-ink ring-4 ring-gold";
                   return (
                     <button
                       key={i}
@@ -501,7 +501,7 @@ export default function GameClient({ data }: { data: PublicGameData }) {
               </div>
             </section>
 
-            <aside className="order-1 lg:order-2">
+            <aside className="order-2">
               <div className="bg-panel comic rounded-3xl p-3">
                 <p className="font-display text-gold text-center text-lg mb-2">💰 THANG TIỀN</p>
                 <ol className="ladder space-y-1.5 max-h-[46vh] lg:max-h-[62vh] overflow-y-auto pr-1">

@@ -62,7 +62,11 @@
       "Bash(grep -n \"idsToDelete\\\\|upsert\\\\|delete\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\lib\\\\gameData.ts\")",
       "Bash(grep -n \"correct_index\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\sets\\\\page.tsx\")",
       "Bash(grep -n \"correctIndex\\\\|correct_index\\\\|ABCD\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\lib\\\\csv.ts\")",
-      "Bash(grep -n \"Sẵn sàng chưa\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\GameClient.tsx\")"
+      "Bash(grep -n \"Sẵn sàng chưa\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\GameClient.tsx\")",
+      "Bash(node node_modules/eslint/bin/eslint.js app)",
+      "Bash(grep -n \"selected === i\\\\|ring-4\\\\|ring-gold\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\GameClient.tsx\")",
+      "Bash(grep -n \"extra = \\\\\"ring-4 ring-gold\\\\\"\" -B3 \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\GameClient.tsx\")",
+      "Bash(grep -n \"order-1\\\\|order-2\\\\|lg:grid-cols\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\GameClient.tsx\")"
     ],
     "additionalDirectories": [
       "\\tmp",
