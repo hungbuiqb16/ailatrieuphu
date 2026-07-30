@@ -1,26 +1,320 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #180a30;
+  --foreground: #fff3d6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-body);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-grape: #3b1d6e;
+  --color-grape2: #582b9e;
+  --color-panel: #2a1550;
+  --color-ink: #1a0b33;
+  --color-gold: #ffc93c;
+  --color-gold2: #ff9e1b;
+  --color-coral: #ff5d8f;
+  --color-teal: #2ec4b6;
+  --color-cream: #fff3d6;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), system-ui, cursive;
+  letter-spacing: 0.5px;
+}
+.font-body {
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+/* Chữ ký hình ảnh: viền đen dày + bóng cứng kiểu comic */
+.comic {
+  border: 4px solid #1a0b33;
+  box-shadow: 6px 6px 0 #1a0b33;
+}
+.comic-sm {
+  border: 3px solid #1a0b33;
+  box-shadow: 4px 4px 0 #1a0b33;
+}
+.comic-press {
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease;
+}
+.comic-press:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 9px 9px 0 #1a0b33;
+}
+.comic-press:active:not(:disabled) {
+  transform: translate(4px, 4px);
+  box-shadow: 1px 1px 0 #1a0b33;
+}
+.comic-press:disabled {
+  opacity: 0.35;
+  filter: grayscale(0.4);
+  cursor: not-allowed;
+}
+
+/* ---------- Nền sân khấu nhiều lớp ---------- */
+.stage {
+  background:
+    radial-gradient(140% 120% at 50% 115%, rgba(255, 158, 27, 0.22) 0%, transparent 45%),
+    radial-gradient(130% 100% at 50% -15%, #7a3fd6 0%, #4a2288 38%, #2a1550 72%, #180a30 100%);
+  background-attachment: fixed;
+}
+
+.dots::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 40%, #000 40%, transparent 85%);
+  mask-image: radial-gradient(120% 90% at 50% 40%, #000 40%, transparent 85%);
+}
+
+.bg-rays {
+  position: fixed;
+  inset: -40% -40% auto -40%;
+  height: 150%;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-conic-gradient(
+    from 0deg at 50% 0%,
+    rgba(255, 201, 60, 0.1) 0deg 5deg,
+    transparent 5deg 15deg
+  );
+  transform-origin: 50% 0%;
+  animation: raySpin 90s linear infinite;
+  -webkit-mask-image: radial-gradient(80% 80% at 50% 0%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(80% 80% at 50% 0%, #000 0%, transparent 70%);
+  filter: blur(1px);
+}
+@keyframes raySpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spotlight {
+  position: fixed;
+  top: -10%;
+  z-index: 0;
+  pointer-events: none;
+  width: 42vmax;
+  height: 130vh;
+  filter: blur(30px);
+  opacity: 0.5;
+}
+.spotlight.l {
+  left: -8%;
+  transform-origin: top center;
+  background: linear-gradient(180deg, rgba(46, 196, 182, 0.55), transparent 70%);
+  clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+  animation: sweepL 11s ease-in-out infinite;
+}
+.spotlight.r {
+  right: -8%;
+  transform-origin: top center;
+  background: linear-gradient(180deg, rgba(255, 93, 143, 0.55), transparent 70%);
+  clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+  animation: sweepR 13s ease-in-out infinite;
+}
+@keyframes sweepL {
+  0%,
+  100% {
+    transform: rotate(-14deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes sweepR {
+  0%,
+  100% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
+.bg-floor {
+  position: fixed;
+  left: 50%;
+  bottom: -55vh;
+  transform: translateX(-50%);
+  width: 180vmax;
+  height: 120vh;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 201, 60, 0.2), rgba(255, 201, 60, 0.06) 60%, transparent 72%);
+  box-shadow:
+    0 0 0 6vmax rgba(255, 255, 255, 0.03),
+    0 0 0 12vmax rgba(255, 255, 255, 0.02);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+.star {
+  animation: twinkle 2.4s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+.floaty {
+  animation: floaty 4s ease-in-out infinite;
+}
+
+@keyframes coinbob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.coinbob {
+  animation: coinbob 1.2s ease-in-out infinite;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.pop {
+  animation: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-8px);
+  }
+  40% {
+    transform: translateX(8px);
+  }
+  60% {
+    transform: translateX(-6px);
+  }
+  80% {
+    transform: translateX(6px);
+  }
+}
+.shake {
+  animation: shake 0.5s ease;
+}
+
+@keyframes blinkgreen {
+  0%,
+  100% {
+    background-color: #2ec4b6;
+  }
+  50% {
+    background-color: #7cf5c8;
+  }
+}
+.flash-correct {
+  animation: blinkgreen 0.45s ease 3;
+}
+
+@keyframes blinkred {
+  0%,
+  100% {
+    background-color: #ff5d8f;
+  }
+  50% {
+    background-color: #ffb0c8;
+  }
+}
+.flash-wrong {
+  animation: blinkred 0.4s ease 3;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 12px;
+  height: 16px;
+  top: -20px;
+  will-change: transform;
+}
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+
+.ring {
+  transform: rotate(-90deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star,
+  .floaty,
+  .coinbob,
+  .pop,
+  .shake,
+  .flash-correct,
+  .flash-wrong,
+  .confetti-piece,
+  .bg-rays,
+  .spotlight.l,
+  .spotlight.r {
+    animation: none !important;
+  }
+  .comic-press {
+    transition: none;
+  }
+}
+
+/* Thanh cuộn thang tiền */
+.ladder::-webkit-scrollbar {
+  width: 8px;
+}
+.ladder::-webkit-scrollbar-thumb {
+  background: #ffc93c;
+  border-radius: 99px;
+}
+.ladder::-webkit-scrollbar-track {
+  background: #ffffff10;
 }

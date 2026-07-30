@@ -1,0 +1,600 @@
+{
+  "activeSetId": "ih65nni0xqms6kkzwn",
+  "sets": [
+    {
+      "id": "default",
+      "name": "Bộ mặc định",
+      "prizes": [
+        200000,
+        400000,
+        600000,
+        1000000,
+        2000000,
+        3000000,
+        6000000,
+        10000000,
+        14000000,
+        22000000,
+        30000000,
+        40000000,
+        60000000,
+        85000000,
+        150000000
+      ],
+      "safe": [
+        4,
+        9
+      ],
+      "questions": [
+        {
+          "q": "Thủ đô của Việt Nam là thành phố nào?",
+          "a": [
+            "TP. Hồ Chí Minh",
+            "Hà Nội",
+            "Đà Nẵng",
+            "Huế"
+          ],
+          "c": 1
+        },
+        {
+          "q": "Con vật nào được mệnh danh là \"chúa tể rừng xanh\"?",
+          "a": [
+            "Hổ",
+            "Voi",
+            "Sư tử",
+            "Gấu"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Mỗi ngày Mặt Trời mọc ở hướng nào?",
+          "a": [
+            "Tây",
+            "Nam",
+            "Bắc",
+            "Đông"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Quốc gia nào có diện tích lớn nhất thế giới?",
+          "a": [
+            "Canada",
+            "Trung Quốc",
+            "Nga",
+            "Hoa Kỳ"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Một năm nhuận có bao nhiêu ngày?",
+          "a": [
+            "364",
+            "365",
+            "366",
+            "367"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Hành tinh nào gần Mặt Trời nhất?",
+          "a": [
+            "Sao Kim",
+            "Sao Thủy",
+            "Trái Đất",
+            "Sao Hỏa"
+          ],
+          "c": 1
+        },
+        {
+          "q": "Ai là tác giả của kiệt tác \"Truyện Kiều\"?",
+          "a": [
+            "Nguyễn Trãi",
+            "Hồ Xuân Hương",
+            "Nguyễn Du",
+            "Nguyễn Đình Chiểu"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Đại dương nào lớn nhất thế giới?",
+          "a": [
+            "Đại Tây Dương",
+            "Ấn Độ Dương",
+            "Bắc Băng Dương",
+            "Thái Bình Dương"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Nguyên tố hóa học có ký hiệu \"O\" là gì?",
+          "a": [
+            "Vàng",
+            "Oxy",
+            "Sắt",
+            "Bạc"
+          ],
+          "c": 1
+        },
+        {
+          "q": "Kim tự tháp Giza nổi tiếng nằm ở quốc gia nào?",
+          "a": [
+            "Hy Lạp",
+            "Mexico",
+            "Ai Cập",
+            "Iraq"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Ai là người đầu tiên đặt chân lên Mặt Trăng?",
+          "a": [
+            "Yuri Gagarin",
+            "Neil Armstrong",
+            "Buzz Aldrin",
+            "Michael Collins"
+          ],
+          "c": 1
+        },
+        {
+          "q": "Bức tranh \"Mona Lisa\" do họa sĩ nào vẽ?",
+          "a": [
+            "Van Gogh",
+            "Picasso",
+            "Leonardo da Vinci",
+            "Michelangelo"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Tốc độ ánh sáng trong chân không xấp xỉ bao nhiêu km/giây?",
+          "a": [
+            "3.000",
+            "30.000",
+            "300.000",
+            "3.000.000"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Cơ quan nào trong cơ thể người sản xuất insulin?",
+          "a": [
+            "Gan",
+            "Tuyến tụy",
+            "Thận",
+            "Lá lách"
+          ],
+          "c": 1
+        },
+        {
+          "q": "Năm nào Chủ tịch Hồ Chí Minh đọc Tuyên ngôn độc lập (2/9)?",
+          "a": [
+            "1930",
+            "1945",
+            "1954",
+            "1975"
+          ],
+          "c": 1
+        }
+      ]
+    },
+    {
+      "id": "c74l75laqums6jslcc",
+      "name": "demo",
+      "prizes": [
+        200000,
+        300000
+      ],
+      "safe": [],
+      "questions": [
+        {
+          "q": "1+1 bằng bao nhiêu",
+          "a": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "c": 0
+        },
+        {
+          "q": "3+4 bằng bao nhiêu",
+          "a": [
+            "2",
+            "4",
+            "5",
+            "7"
+          ],
+          "c": 3
+        }
+      ]
+    },
+    {
+      "id": "i7dfqsy5u3bms6kkbj7",
+      "name": "test",
+      "prizes": [
+        200000,
+        400000
+      ],
+      "safe": [
+        1
+      ],
+      "questions": [
+        {
+          "q": "Thủ đô của Việt Nam là thành phố nào?",
+          "a": [
+            "TP. Hồ Chí Minh",
+            "Hà Nội",
+            "Đà Nẵng",
+            "Huế"
+          ],
+          "c": 1
+        },
+        {
+          "q": "1 + 1 bằng mấy?",
+          "a": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "c": 1
+        }
+      ]
+    },
+    {
+      "id": "ih65nni0xqms6kkzwn",
+      "name": "aa",
+      "prizes": [
+        200000,
+        400000,
+        600000,
+        1000000,
+        2000000,
+        3000000,
+        6000000,
+        10000000,
+        14000000,
+        22000000,
+        30000000,
+        40000000,
+        60000000,
+        85000000,
+        150000000,
+        200000,
+        400000,
+        600000,
+        1000000,
+        2000000,
+        3000000,
+        6000000,
+        10000000,
+        14000000,
+        22000000,
+        30000000,
+        40000000,
+        60000000,
+        85000000,
+        150000000
+      ],
+      "safe": [
+        5,
+        9,
+        14,
+        20,
+        24,
+        29
+      ],
+      "questions": [
+        {
+          "q": "Loài chim nào không thể bay?",
+          "a": [
+            "Đại bàng",
+            "Chim sẻ",
+            "Đà điểu",
+            "Bồ câu"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Hành tinh nào được gọi là 'Hành tinh Đỏ'?",
+          "a": [
+            "Sao Kim",
+            "Sao Hỏa",
+            "Sao Mộc",
+            "Sao Thổ"
+          ],
+          "c": 1
+        },
+        {
+          "q": "Loài động vật nào là động vật có vú lớn nhất thế giới?",
+          "a": [
+            "Cá voi sát thủ",
+            "Voi châu Phi",
+            "Hà mã",
+            "Cá voi xanh"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Quốc gia nào có dân số đông nhất thế giới hiện nay?",
+          "a": [
+            "Hoa Kỳ",
+            "Indonesia",
+            "Ấn Độ",
+            "Trung Quốc"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Thủ đô của Úc là?",
+          "a": [
+            "Sydney",
+            "Melbourne",
+            "Perth",
+            "Canberra"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Châu lục nào có diện tích nhỏ nhất thế giới?",
+          "a": [
+            "Nam Cực",
+            "Châu Âu",
+            "Châu Đại Dương",
+            "Châu Phi"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Loại khí nào chiếm tỷ lệ lớn nhất trong khí quyển Trái Đất?",
+          "a": [
+            "Oxy",
+            "CO₂",
+            "Hydro",
+            "Nitơ"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Quốc hoa của Việt Nam là loài hoa nào?",
+          "a": [
+            "Hoa mai",
+            "Hoa đào",
+            "Hoa sen",
+            "Hoa cúc"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Quốc gia nào nổi tiếng với tháp nghiêng Pisa?",
+          "a": [
+            "Tây Ban Nha",
+            "Hy Lạp",
+            "Ý",
+            "Bồ Đào Nha"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Vịnh Hạ Long thuộc tỉnh nào?",
+          "a": [
+            "Hải Phòng",
+            "Thanh Hóa",
+            "Nam Định",
+            "Quảng Ninh"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Ai là người phát hiện ra lực hấp dẫn khi quan sát quả táo rơi?",
+          "a": [
+            "Galileo",
+            "Einstein",
+            "Isaac Newton",
+            "Edison"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Loài cây nào được xem là biểu tượng của Canada?",
+          "a": [
+            "Cây thông",
+            "Cây sồi",
+            "Cây lá phong",
+            "Cây bạch dương"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Kim loại nào ở trạng thái lỏng ở nhiệt độ phòng?",
+          "a": [
+            "Đồng",
+            "Nhôm",
+            "Sắt",
+            "Thủy ngân"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Quốc gia nào đăng cai FIFA World Cup 2022?",
+          "a": [
+            "Nga",
+            "Brazil",
+            "Hoa Kỳ",
+            "Qatar"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Kênh đào Suez nối Địa Trung Hải với vùng biển nào?",
+          "a": [
+            "Biển Đen",
+            "Biển Đỏ",
+            "Biển Baltic",
+            "Biển Caspi"
+          ],
+          "c": 1
+        },
+        {
+          "q": "Đỉnh Fansipan thuộc dãy núi nào?",
+          "a": [
+            "Hoàng Liên Sơn",
+            "Trường Sơn",
+            "Tam Đảo",
+            "Bạch Mã"
+          ],
+          "c": 0
+        },
+        {
+          "q": "Ai là người đầu tiên đặt chân lên Mặt Trăng?",
+          "a": [
+            "Yuri Gagarin",
+            "Buzz Aldrin",
+            "Neil Armstrong",
+            "Michael Collins"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Hiến pháp đầu tiên của Việt Nam Dân chủ Cộng hòa được ban hành năm nào?",
+          "a": [
+            "1945",
+            "1946",
+            "1954",
+            "1956"
+          ],
+          "c": 1
+        },
+        {
+          "q": "Quốc gia nào có nhiều đảo nhất thế giới?",
+          "a": [
+            "Indonesia",
+            "Philippines",
+            "Nhật Bản",
+            "Thụy Điển"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Loài động vật nào có tuổi thọ dài nhất được ghi nhận?",
+          "a": [
+            "Cá voi xanh",
+            "Voi",
+            "Rùa Galápagos",
+            "Sứa bất tử (Turritopsis dohrnii)"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Dãy núi Himalaya nằm chủ yếu ở châu lục nào?",
+          "a": [
+            "Châu Âu",
+            "Châu Á",
+            "Châu Phi",
+            "Châu Mỹ"
+          ],
+          "c": 1
+        },
+        {
+          "q": "Quốc gia nào được mệnh danh là 'Đất nước Mặt Trời mọc'?",
+          "a": [
+            "Hàn Quốc",
+            "Trung Quốc",
+            "Nhật Bản",
+            "Thái Lan"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Ai là tác giả của bản Tuyên ngôn Độc lập ngày 2/9/1945?",
+          "a": [
+            "Võ Nguyên Giáp",
+            "Trường Chinh",
+            "Phạm Văn Đồng",
+            "Hồ Chí Minh"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Hồ nước ngọt lớn nhất thế giới theo diện tích là?",
+          "a": [
+            "Hồ Victoria",
+            "Hồ Baikal",
+            "Hồ Michigan",
+            "Hồ Superior"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Quốc gia nào có diện tích nhỏ nhất thế giới?",
+          "a": [
+            "Monaco",
+            "Singapore",
+            "Malta",
+            "Vatican"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Loài chim nào có sải cánh dài nhất thế giới?",
+          "a": [
+            "Đại bàng vàng",
+            "Kền kền Andes",
+            "Thiên nga",
+            "Hải âu lang thang (Wandering Albatross)"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Trận Điện Biên Phủ kết thúc vào ngày nào?",
+          "a": [
+            "30/4/1975",
+            "7/5/1954",
+            "2/9/1945",
+            "19/12/1946"
+          ],
+          "c": 1
+        },
+        {
+          "q": "Sa mạc nóng lớn nhất thế giới là?",
+          "a": [
+            "Gobi",
+            "Kalahari",
+            "Atacama",
+            "Sahara"
+          ],
+          "c": 3
+        },
+        {
+          "q": "Nguyên tố hóa học có ký hiệu Au là?",
+          "a": [
+            "Bạc",
+            "Đồng",
+            "Vàng",
+            "Kẽm"
+          ],
+          "c": 2
+        },
+        {
+          "q": "Quốc gia nào có đường bờ biển dài nhất thế giới?",
+          "a": [
+            "Nga",
+            "Úc",
+            "Hoa Kỳ",
+            "Canada"
+          ],
+          "c": 3
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "timePerQuestion": 30,
+    "lifelines": {
+      "f5050": false,
+      "phone": false,
+      "audience": true
+    }
+  }
+}
