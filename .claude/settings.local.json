@@ -61,7 +61,8 @@
       "Bash(grep -n \"importSetFromCsv\" -A 12 \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\GameDataContext.tsx\")",
       "Bash(grep -n \"idsToDelete\\\\|upsert\\\\|delete\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\lib\\\\gameData.ts\")",
       "Bash(grep -n \"correct_index\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\sets\\\\page.tsx\")",
-      "Bash(grep -n \"correctIndex\\\\|correct_index\\\\|ABCD\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\lib\\\\csv.ts\")"
+      "Bash(grep -n \"correctIndex\\\\|correct_index\\\\|ABCD\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\lib\\\\csv.ts\")",
+      "Bash(grep -n \"Sẵn sàng chưa\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\GameClient.tsx\")"
     ],
     "additionalDirectories": [
       "\\tmp",

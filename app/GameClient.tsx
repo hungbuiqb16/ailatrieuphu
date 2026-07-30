@@ -356,6 +356,7 @@ export default function GameClient({ data }: { data: PublicGameData }) {
             <p className="font-body font-semibold text-cream/90 text-lg mb-8 max-w-md mx-auto">
               Trả lời đúng {questions.length} câu hỏi để leo lên đỉnh cao{" "}
               <span className="text-gold font-extrabold">{fmt(prizes[prizes.length - 1] / 1000000)} triệu</span>!
+              <br />
               Sẵn sàng chưa?
             </p>
             <button
