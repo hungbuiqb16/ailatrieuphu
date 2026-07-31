@@ -34,6 +34,7 @@ function DashboardShell({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   async function logout() {
     await fetch("/api/admin/logout", { method: "POST" });
@@ -43,44 +44,62 @@ function DashboardShell({ children }: { children: ReactNode }) {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed} theme="light" style={{ borderRight: "1px solid #f0f0f0" }}>
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={setCollapsed}
+        trigger={null}
+        breakpoint="lg"
+        collapsedWidth={0}
+        onBreakpoint={setIsMobile}
+        theme="light"
+        style={{ borderRight: "1px solid #f0f0f0", position: "fixed", height: "100vh", left: 0, top: 0, zIndex: 10 }}
+      >
         <div
           style={{
             height: 56,
             margin: 12,
             display: "flex",
             alignItems: "center",
-            justifyContent: collapsed ? "center" : "flex-start",
+            justifyContent: "flex-start",
             gap: 8,
             color: BRAND_RED,
             fontWeight: 800,
-            fontSize: collapsed ? 20 : 16,
+            fontSize: 16,
             whiteSpace: "nowrap",
             overflow: "hidden",
           }}
         >
           <TrophyOutlined />
-          {!collapsed && <span>AI LÀ TRIỆU PHÚ</span>}
+          <span>AI LÀ TRIỆU PHÚ</span>
         </div>
         <Menu
           theme="light"
           mode="inline"
           selectedKeys={[pathname]}
+          onClick={() => isMobile && setCollapsed(true)}
           items={MENU_ITEMS.map((item) => ({
             ...item,
             label: <Link href={item.key}>{item.label}</Link>,
           }))}
         />
       </Sider>
-      <Layout>
+      {isMobile && !collapsed && (
+        <div
+          onClick={() => setCollapsed(true)}
+          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 9 }}
+        />
+      )}
+      <Layout style={{ marginLeft: isMobile ? 0 : collapsed ? 0 : 200, transition: "margin-left 0.2s" }}>
         <Header
           style={{
-            padding: "0 16px",
+            padding: "0 12px",
             background: "#fff",
             borderBottom: "1px solid #f0f0f0",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            gap: 8,
           }}
         >
           <Button
@@ -88,16 +107,18 @@ function DashboardShell({ children }: { children: ReactNode }) {
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             onClick={() => setCollapsed((c) => !c)}
           />
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <div className="flex items-center gap-2 sm:gap-4">
             <Avatar style={{ backgroundColor: BRAND_RED }} icon={<UserOutlined />} />
-            <span>Quản trị viên</span>
+            <span className="hidden sm:inline">Quản trị viên</span>
             <Button icon={<LogoutOutlined />} onClick={logout}>
-              Đăng xuất
+              <span className="hidden sm:inline">Đăng xuất</span>
             </Button>
           </div>
         </Header>
-        <Content style={{ margin: 16 }}>
-          <div style={{ padding: 24, background: "#fff", borderRadius: 8, minHeight: "100%" }}>{children}</div>
+        <Content className="m-2 sm:m-4">
+          <div className="p-3 sm:p-6" style={{ background: "#fff", borderRadius: 8, minHeight: "100%" }}>
+            {children}
+          </div>
         </Content>
       </Layout>
     </Layout>

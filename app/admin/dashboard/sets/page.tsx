@@ -161,7 +161,7 @@ export default function SetsPage() {
         title="Bộ câu hỏi"
         description="Tạo, kích hoạt và quản lý các bộ câu hỏi cho game."
         action={
-          <Space>
+          <Space wrap>
             <Button icon={<ImportOutlined />} loading={saving} onClick={() => setImporting(true)}>
               Nhập từ CSV
             </Button>
@@ -171,7 +171,7 @@ export default function SetsPage() {
           </Space>
         }
       />
-      <Table rowKey="id" columns={columns} dataSource={data.sets} pagination={false} />
+      <Table rowKey="id" columns={columns} dataSource={data.sets} pagination={false} scroll={{ x: "max-content" }} />
 
       <Modal
         title="Tạo bộ câu hỏi mới"

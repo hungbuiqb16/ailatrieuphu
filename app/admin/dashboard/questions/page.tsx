@@ -175,7 +175,7 @@ function QuestionsPageContent() {
         title={`Câu hỏi & thang tiền — ${set.name}`}
         description="Chỉnh sửa câu hỏi, đáp án, giá trị giải thưởng và mốc an toàn."
         action={
-          <Space>
+          <Space wrap>
             <Button icon={<PlusOutlined />} onClick={addRow}>
               Thêm câu hỏi
             </Button>

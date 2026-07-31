@@ -13,7 +13,10 @@ export function SectionHeader({
   action?: ReactNode;
 }) {
   return (
-    <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 20 }}>
+    <div
+      className="flex-wrap"
+      style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12, marginBottom: 20 }}
+    >
       <div style={{ display: "flex", gap: 10 }}>
         <div style={{ width: 4, borderRadius: 2, background: "#E8394A", alignSelf: "stretch" }} />
         <div>
