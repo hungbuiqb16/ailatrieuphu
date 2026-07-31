@@ -70,7 +70,9 @@
       "Bash(grep -n \"Typography.Title\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\sets\\\\page.tsx\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\questions\\\\page.tsx\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\settings\\\\page.tsx\")",
       "Bash(grep -n \"Typography\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\sets\\\\page.tsx\")",
       "Bash(grep -n \"Typography\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\questions\\\\page.tsx\")",
-      "Bash(cat \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\settings\\\\page.tsx\")"
+      "Bash(cat \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\app\\\\admin\\\\dashboard\\\\settings\\\\page.tsx\")",
+      "Bash(grep -n \"\\\\\"react-dnd\\\\\"\\\\|react-dnd-html5-backend\" \"\\\\\\\\wsl.localhost\\\\Ubuntu-24.04\\\\home\\\\neko\\\\ailatrieuphu\\\\package.json\")",
+      "Bash(node -e \"console.log\\(require\\('\\\\\\\\\\\\\\\\wsl.localhost\\\\\\\\Ubuntu-24.04\\\\\\\\home\\\\\\\\neko\\\\\\\\ailatrieuphu\\\\\\\\node_modules\\\\\\\\react-dnd\\\\\\\\package.json'\\).version\\)\")"
     ],
     "additionalDirectories": [
       "\\tmp",

@@ -1,11 +1,14 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, type HTMLAttributes } from "react";
 import { useSearchParams } from "next/navigation";
 import { Alert, Button, Checkbox, Input, InputNumber, Popconfirm, Select, Space, Spin, Table } from "antd";
-import { DeleteOutlined, PlusOutlined, SaveOutlined } from "@ant-design/icons";
+import { DeleteOutlined, HolderOutlined, PlusOutlined, SaveOutlined } from "@ant-design/icons";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import { useGameData, setToRows, rowsToSet, type Row } from "../GameDataContext";
 import { SectionHeader } from "../SectionHeader";
+import { DraggableRow } from "./DraggableRow";
 
 export default function QuestionsPage() {
   return (
@@ -56,6 +59,15 @@ function QuestionsPageContent() {
     setRows((prev) => prev.filter((r) => r.key !== key).map((r, i) => ({ ...r, key: i })));
   }
 
+  function moveRow(fromIndex: number, toIndex: number) {
+    setRows((prev) => {
+      const next = [...prev];
+      const [moved] = next.splice(fromIndex, 1);
+      next.splice(toIndex, 0, moved);
+      return next.map((r, i) => ({ ...r, key: i }));
+    });
+  }
+
   function addRow() {
     setRows((prev) => [
       ...prev,
@@ -74,6 +86,11 @@ function QuestionsPageContent() {
   }
 
   const columns = [
+    {
+      title: "",
+      width: 40,
+      render: () => <HolderOutlined style={{ cursor: "move", color: "#999" }} />,
+    },
     {
       title: "STT",
       dataIndex: "key",
@@ -168,7 +185,17 @@ function QuestionsPageContent() {
           </Space>
         }
       />
-      <Table rowKey="key" columns={columns} dataSource={rows} pagination={false} scroll={{ x: 1100 }} />
+      <DndProvider backend={HTML5Backend}>
+        <Table
+          rowKey="key"
+          columns={columns}
+          dataSource={rows}
+          pagination={false}
+          scroll={{ x: 1100 }}
+          components={{ body: { row: DraggableRow } }}
+          onRow={(_, index) => ({ index: index ?? 0, moveRow }) as HTMLAttributes<HTMLTableRowElement>}
+        />
+      </DndProvider>
     </div>
   );
 }
